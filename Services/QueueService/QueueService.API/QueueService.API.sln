@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueService.API", "QueueService.API.csproj", "{DC00272D-C87F-4655-8190-67E0804D5BCA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC00272D-C87F-4655-8190-67E0804D5BCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC00272D-C87F-4655-8190-67E0804D5BCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC00272D-C87F-4655-8190-67E0804D5BCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC00272D-C87F-4655-8190-67E0804D5BCA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CB1D862E-4350-43F5-AC22-FD19E207027C}
+	EndGlobalSection
+EndGlobal

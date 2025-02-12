@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{EFB7BF69-9E72-4591-891C-F099AE89CA1B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "QueueService", "QueueService", "{E91388AB-1691-4FEC-8C5F-9FF86732E958}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QueueService.API", "Services\QueueService\QueueService.Api\QueueService.API.csproj", "{2915D092-6D43-4D3E-901D-88A1B71E7FCB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QueueService.Application", "Services\QueueService\QueueService.Application\QueueService.Application.csproj", "{826ADD32-28F5-468F-8085-F2A696EB3829}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QueueService.Infrastructure", "Services\QueueService\QueueService.Infrastructure\QueueService.Infrastructure.csproj", "{FBF84961-4C66-4626-897B-0968CFA69E6B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QueueService.Domain", "Services\QueueService\QueueService.Domain\QueueService.Domain.csproj", "{7D284367-A76A-44DD-88D4-9F99C69FD9CF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{FDE586C6-BA02-49B0-9056-FD11AB631462}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{F0E2B1C1-D523-4CC4-8247-FCE88E1C2A9E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2915D092-6D43-4D3E-901D-88A1B71E7FCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2915D092-6D43-4D3E-901D-88A1B71E7FCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2915D092-6D43-4D3E-901D-88A1B71E7FCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2915D092-6D43-4D3E-901D-88A1B71E7FCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{826ADD32-28F5-468F-8085-F2A696EB3829}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{826ADD32-28F5-468F-8085-F2A696EB3829}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{826ADD32-28F5-468F-8085-F2A696EB3829}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{826ADD32-28F5-468F-8085-F2A696EB3829}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBF84961-4C66-4626-897B-0968CFA69E6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBF84961-4C66-4626-897B-0968CFA69E6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBF84961-4C66-4626-897B-0968CFA69E6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBF84961-4C66-4626-897B-0968CFA69E6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D284367-A76A-44DD-88D4-9F99C69FD9CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D284367-A76A-44DD-88D4-9F99C69FD9CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D284367-A76A-44DD-88D4-9F99C69FD9CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D284367-A76A-44DD-88D4-9F99C69FD9CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E91388AB-1691-4FEC-8C5F-9FF86732E958} = {EFB7BF69-9E72-4591-891C-F099AE89CA1B}
+		{2915D092-6D43-4D3E-901D-88A1B71E7FCB} = {E91388AB-1691-4FEC-8C5F-9FF86732E958}
+		{826ADD32-28F5-468F-8085-F2A696EB3829} = {E91388AB-1691-4FEC-8C5F-9FF86732E958}
+		{FBF84961-4C66-4626-897B-0968CFA69E6B} = {E91388AB-1691-4FEC-8C5F-9FF86732E958}
+		{7D284367-A76A-44DD-88D4-9F99C69FD9CF} = {E91388AB-1691-4FEC-8C5F-9FF86732E958}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4A6557E1-5AE8-4794-A721-E5FE7BA4539A}
+	EndGlobalSection
+EndGlobal
