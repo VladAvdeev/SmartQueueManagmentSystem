@@ -1,12 +1,28 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using QueueService.Application.Commands;
 using QueueService.Application.Handlers;
+using QueueService.Domain.Interfaces;
+using QueueService.Infrastructure.Context;
+using QueueService.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.AddDbContext<QueueDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+builder.Services.AddScoped<IQueueRepository, QueueRepository>();
+
 builder.Services.AddMediatR(x =>
-x.RegisterServicesFromAssemblies(typeof(AddQueueCommandHandler).Assembly, typeof(AddQueueCommand).Assembly));
+    x.RegisterServicesFromAssemblies(typeof(AddQueueCommandHandler).Assembly, typeof(AddQueueCommand).Assembly));
+
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = builder.Configuration.GetConnectionString("RedisConnection");
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

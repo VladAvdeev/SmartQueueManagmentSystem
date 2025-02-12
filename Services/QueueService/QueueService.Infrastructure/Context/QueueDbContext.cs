@@ -12,5 +12,11 @@ namespace QueueService.Infrastructure.Context
     {
         public DbSet<QueueItem> QueueItems { get; set; }
         public QueueDbContext(DbContextOptions<QueueDbContext> options) : base(options) { }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
