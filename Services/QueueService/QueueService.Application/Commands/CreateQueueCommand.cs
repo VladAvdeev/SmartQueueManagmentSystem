@@ -11,7 +11,7 @@ namespace QueueService.Application.Commands
     /// <summary>
     /// Команда, которая содержит модель
     /// </summary>
-    public class AddQueueCommand : IRequest<int>
+    public class CreateQueueCommand : IRequest<int>
     {
         public int Id { get; set; }
         public string Name { get; set; }

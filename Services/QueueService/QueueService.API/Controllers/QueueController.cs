@@ -15,7 +15,7 @@ namespace QueueService.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateQueue([FromBody] AddQueueCommand command)
+        public async Task<IActionResult> CreateQueue([FromBody] CreateQueueCommand command)
         {
             var id = await _mediator.Send(command);
             return CreatedAtAction(nameof(GetQueueById), id);

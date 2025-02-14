@@ -17,7 +17,7 @@ builder.Services.AddDbContext<QueueDbContext>(options =>
 builder.Services.AddScoped<IQueueRepository, QueueRepository>();
 
 builder.Services.AddMediatR(x =>
-    x.RegisterServicesFromAssemblies(typeof(AddQueueCommandHandler).Assembly, typeof(AddQueueCommand).Assembly));
+    x.RegisterServicesFromAssemblies(typeof(CreateQueueCommandHandler).Assembly, typeof(CreateQueueCommand).Assembly));
 
 builder.Services.AddStackExchangeRedisCache(options =>
 {

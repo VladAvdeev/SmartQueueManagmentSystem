@@ -14,14 +14,14 @@ namespace QueueService.Application.Handlers
     /// <summary>
     /// Хендлер команды
     /// </summary>
-    public class AddQueueCommandHandler : IRequestHandler<AddQueueCommand, int>
+    public class CreateQueueCommandHandler : IRequestHandler<CreateQueueCommand, int>
     {
         private readonly IQueueRepository _queueRepository;
-        public AddQueueCommandHandler(IQueueRepository queueRepository)
+        public CreateQueueCommandHandler(IQueueRepository queueRepository)
         {
             _queueRepository = queueRepository;
         }
-        public async Task<int> Handle(AddQueueCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateQueueCommand request, CancellationToken cancellationToken)
         {
             return await _queueRepository.AddAsync(new QueueItem 
             {   Id = request.Id, 
