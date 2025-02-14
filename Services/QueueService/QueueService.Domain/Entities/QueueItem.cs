@@ -29,9 +29,9 @@ namespace QueueService.Domain.Entities
         public QueueStatus Status { get; set; }
         
         // время создания очереди
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         // последнее время обновления очереди
-        public DateTime UpdatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
         
         // Идентификатор обслуживающего окна или оператора (если требуется интеграция с системой операторов)
         // подумать

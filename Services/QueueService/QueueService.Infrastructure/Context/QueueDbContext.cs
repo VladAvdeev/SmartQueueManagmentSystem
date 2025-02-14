@@ -15,7 +15,7 @@ namespace QueueService.Infrastructure.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+            modelBuilder.Entity<QueueItem>();
             base.OnModelCreating(modelBuilder);
         }
     }

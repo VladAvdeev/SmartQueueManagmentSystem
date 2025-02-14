@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using QueueService.Application.Commands;
+using QueueService.Application.Query;
 
 namespace QueueService.API.Controllers
 {
@@ -15,16 +16,19 @@ namespace QueueService.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateQueue([FromBody] CreateQueueCommand command)
+        public async Task<IActionResult> CreateQueue([FromBody] CreateQueueCommand command, CancellationToken cancellationToken = default)
         {
             var id = await _mediator.Send(command);
             return CreatedAtAction(nameof(GetQueueById), id);
             throw new NotImplementedException();
         }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetQueueById(int id)
         {
-            throw new NotImplementedException();
+            var query = new GetQueueByIdQuery { Id = id };
+            var result = await _mediator.Send(query);
+            return result != null ? Ok(result) : NotFound();
         }
     }
 }
