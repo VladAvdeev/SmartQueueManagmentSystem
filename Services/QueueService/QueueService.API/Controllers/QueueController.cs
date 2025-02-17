@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using QueueService.Application.Commands;
 using QueueService.Application.Query;
+using QueueService.Domain.Entities;
 
 namespace QueueService.API.Controllers
 {
@@ -16,6 +17,8 @@ namespace QueueService.API.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(typeof(QueueItem), StatusCodes.Status201Created)]
+        [ProducesDefaultResponseType]
         public async Task<IActionResult> CreateQueue([FromBody] CreateQueueCommand command, CancellationToken cancellationToken = default)
         {
             var id = await _mediator.Send(command);
