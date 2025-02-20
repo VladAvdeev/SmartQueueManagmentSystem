@@ -18,19 +18,38 @@ namespace QueueService.Infrastructure.Repositories
             _context = context;
         }
 
-        public Task<int> AddAsync(QueueItem item)
+        public async Task AddAsync(QueueItem item, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            await _context.QueueItems.AddAsync(item, cancellationToken);
+            await _context.SaveChangesAsync(cancellationToken);
         }
 
-        public async Task<IEnumerable<QueueItem>> GetAllAsync()
+        public async Task<bool> DeleteAsync(int id, CancellationToken cancellationToken = default)
         {
-            return await _context.QueueItems.ToListAsync();
+            var queue = await _context.QueueItems.FindAsync([id], cancellationToken);
+            if(queue != null)
+            {
+                _context.QueueItems.Remove(queue);
+                await _context.SaveChangesAsync(cancellationToken);
+                return true;
+            }
+            return false;
         }
 
-        public Task<QueueItem> GetById(int id)
+        public async Task<IEnumerable<QueueItem>> GetAllAsync(CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            return await _context.QueueItems.ToListAsync(cancellationToken);
+        }
+
+        public async Task<QueueItem?> GetByIdAsync(int id, CancellationToken cancellationToken =default)
+        {
+            return await _context.QueueItems.FindAsync([id], cancellationToken);
+        }
+
+        public async Task UpdateAsync(QueueItem queue, CancellationToken cancellationToken = default)
+        {
+            _context.QueueItems.Update(queue);
+            await _context.SaveChangesAsync(cancellationToken);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using QueueService.Application.Abstractions;
 using QueueService.Application.Commands;
 using QueueService.Domain.Entities;
 using QueueService.Domain.Interfaces;
@@ -14,20 +15,32 @@ namespace QueueService.Application.Handlers
     /// <summary>
     /// Хендлер команды
     /// </summary>
-    public class CreateQueueCommandHandler : IRequestHandler<CreateQueueCommand, int>
+    public class CreateQueueCommandHandler : IRequestHandler<CreateQueueCommand, Result<int>>
     {
         private readonly IQueueRepository _queueRepository;
         public CreateQueueCommandHandler(IQueueRepository queueRepository)
         {
             _queueRepository = queueRepository;
         }
-        public async Task<int> Handle(CreateQueueCommand request, CancellationToken cancellationToken)
+        public async Task<Result<int>> Handle(CreateQueueCommand request, CancellationToken cancellationToken)
         {
-            return await _queueRepository.AddAsync(new QueueItem 
-            {   Id = request.Id, 
-                Name = request.Name, 
-                CreatedAt = request.CreatedAt
-            });
+            var newQueue = new QueueItem
+            {
+                // допустим что id генерируются в БД 
+                Name = request.Name,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow,
+                Status = Domain.Enum.QueueStatus.Active,
+
+                // TODO доделать
+            };
+            await _queueRepository.AddAsync(newQueue, cancellationToken);
+
+            // Предполагаем, что после вызова SaveChangesAsync в репозитории
+            // EF Core автоматически обновит свойство Id
+            // пока так, там посмотрим
+            return Result<int>.Success(newQueue.Id);
         }
+
     }
 }

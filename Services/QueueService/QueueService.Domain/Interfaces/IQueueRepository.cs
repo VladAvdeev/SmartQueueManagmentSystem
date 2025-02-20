@@ -9,8 +9,10 @@ namespace QueueService.Domain.Interfaces
 {
     public interface IQueueRepository
     {
-        Task<IEnumerable<QueueItem>> GetAllAsync();
-        Task<QueueItem?> GetById(int id);
-        Task<int> AddAsync(QueueItem item);
+        Task<IEnumerable<QueueItem>> GetAllAsync(CancellationToken cancellationToken = default);
+        Task<QueueItem?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
+        Task AddAsync(QueueItem item, CancellationToken cancellationToken = default);
+        Task UpdateAsync(QueueItem queue, CancellationToken cancellationToken = default);
+        Task<bool> DeleteAsync(int id, CancellationToken cancellationToken = default);
     }
 }

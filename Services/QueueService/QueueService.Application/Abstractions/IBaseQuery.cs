@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QueueService.Application.Abstractions
 {
-    public interface IBaseCommand<TResponse> : IRequest<Result<TResponse>>
+    public interface IBaseQuery<TResponse> : IRequest<Result<TResponse>>
     {
 
     }
