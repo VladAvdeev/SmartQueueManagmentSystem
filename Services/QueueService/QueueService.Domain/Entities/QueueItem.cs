@@ -11,7 +11,7 @@ namespace QueueService.Domain.Entities
     public class QueueItem
     {
         // Уникальный идентификатор очереди
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         
         // название очереди в идея пока в формате "Окно 1", "Отдел продаж"
         public string Name { get; set; }

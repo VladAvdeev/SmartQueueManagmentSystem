@@ -23,7 +23,7 @@ namespace QueueService.API.Controllers
         [ProducesDefaultResponseType]
         public async Task<IActionResult> CreateQueue([FromBody] CreateQueueCommand command, CancellationToken cancellationToken = default)
         {
-            Result<int> result = await _mediator.Send(command);
+            Result<Guid> result = await _mediator.Send(command);
             if (result.IsSuccess)
             {
                 return CreatedAtAction(nameof(GetQueueById), new {id = result.Value}, result.Value);

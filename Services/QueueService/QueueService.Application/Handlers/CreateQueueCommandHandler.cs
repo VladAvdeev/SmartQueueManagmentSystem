@@ -15,14 +15,14 @@ namespace QueueService.Application.Handlers
     /// <summary>
     /// Хендлер команды
     /// </summary>
-    public class CreateQueueCommandHandler : IRequestHandler<CreateQueueCommand, Result<int>>
+    public class CreateQueueCommandHandler : IRequestHandler<CreateQueueCommand, Result<Guid>>
     {
         private readonly IQueueRepository _queueRepository;
         public CreateQueueCommandHandler(IQueueRepository queueRepository)
         {
             _queueRepository = queueRepository;
         }
-        public async Task<Result<int>> Handle(CreateQueueCommand request, CancellationToken cancellationToken)
+        public async Task<Result<Guid>> Handle(CreateQueueCommand request, CancellationToken cancellationToken)
         {
             var newQueue = new QueueItem
             {
@@ -39,7 +39,7 @@ namespace QueueService.Application.Handlers
             // Предполагаем, что после вызова SaveChangesAsync в репозитории
             // EF Core автоматически обновит свойство Id
             // пока так, там посмотрим
-            return Result<int>.Success(newQueue.Id);
+            return Result<Guid>.Success(newQueue.Id);
         }
 
     }

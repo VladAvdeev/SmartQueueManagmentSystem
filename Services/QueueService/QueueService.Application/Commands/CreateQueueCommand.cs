@@ -12,10 +12,9 @@ namespace QueueService.Application.Commands
     /// <summary>
     /// Команда, которая содержит модель
     /// </summary>
-    public class CreateQueueCommand : IBaseCommand<int>
+    public class CreateQueueCommand : IBaseCommand<Guid>
     {
-        public int Id { get; set; }
+       // допустим что гуид создается в базе
         public string Name { get; set; }
-        public DateTime CreatedAt { get; set; } 
     }
 }
